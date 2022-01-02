@@ -1,4 +1,4 @@
-import { Cipher, createCipheriv, createDecipheriv, Encoding } from "crypto";
+import { Cipher, createCipheriv, createDecipheriv, Encoding, randomBytes } from "crypto";
 
 const [key, initVector] = JSON.parse(process.env.CRYPT_KEYS!).map(
 	(key: string) => Buffer.from(key, "base64")
@@ -40,4 +40,8 @@ export function decrypt(
 		inputType,
 		outputType
 	);
+}
+
+export function genRandomHash(length: number) {
+	return randomBytes(length).toString('hex');
 }
