@@ -104,12 +104,12 @@ const handler = async (req: NextIronRequest, res: NextApiResponse) => {
       avatar: `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`,
     });
   } catch (e) {
-    res.redirect("/r?true");
+    res.redirect("/discord");
     return;
   }
 
   await req.session.save();
-  res.redirect("/?r=true");
+  res.redirect("/discord?is_redirect=true");
 };
 
 export default withSession(handler);
