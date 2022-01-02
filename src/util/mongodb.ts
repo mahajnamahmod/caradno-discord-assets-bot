@@ -29,6 +29,6 @@ export async function dbConnect() {
 
   cachedClient = client;
   cachedDb = db;
-
+  console.log('connected!');
   return { client, db };
 }
