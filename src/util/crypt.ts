@@ -1,6 +1,6 @@
 import { Cipher, createCipheriv, createDecipheriv, Encoding, randomBytes } from "crypto";
 
-const [key, initVector] = JSON.parse(process.env.CRYPT_KEYS!).map(
+const [key, initVector] = process.env.CRYPT_KEYS!.split(',').map(
 	(key: string) => Buffer.from(key, "base64")
 );
 
