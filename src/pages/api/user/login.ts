@@ -5,7 +5,7 @@ const OAuthScope = ["identify"].join(" ");
 const OAuthData = new URLSearchParams({
   response_type: "code",
   client_id: process.env.CLIENT_ID as string,
-  redirect_uri: `${process.env.DOMAIN}/api/user/callback`,
+  redirect_uri: `${process.env.DOMAIN}api/user/callback`,
   scope: OAuthScope,
 });
 

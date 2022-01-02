@@ -23,7 +23,7 @@ const handler = async (req: NextIronRequest, res: NextApiResponse) => {
         client_secret: process.env.CLIENT_SECRET,
         grant_type: "authorization_code",
         code: req.query.code,
-        redirect_uri: `${process.env.DOMAIN}/api/user/callback`,
+        redirect_uri: `${process.env.DOMAIN}api/user/callback`,
       }),
       {
         headers: {
