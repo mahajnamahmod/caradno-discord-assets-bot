@@ -3,7 +3,7 @@ import { stringify } from "querystring";
 import { NextIronRequest, withSession } from "../../../util/session";
 import axios from "axios";
 import { dbConnect } from "../../../util/mongodb";
-import { decrypt, encrypt } from "../../../util/crypt";
+import { encrypt } from "../../../util/crypt";
 
 const OAuthScope = ["identify"].join(" ");
 
@@ -23,7 +23,7 @@ const handler = async (req: NextIronRequest, res: NextApiResponse) => {
         client_secret: process.env.CLIENT_SECRET,
         grant_type: "authorization_code",
         code: req.query.code,
-        redirect_uri: `${process.env.DOMAIN}/api/auth/callback`,
+        redirect_uri: `${process.env.DOMAIN}/api/user/callback`,
       }),
       {
         headers: {
